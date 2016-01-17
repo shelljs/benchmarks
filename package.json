@@ -1,0 +1,27 @@
+{
+  "name": "jsbench",
+  "version": "0.0.1",
+  "description": "Benchmark ShellJS scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvantheDugtrio/ShellJSBench.git"
+  },
+  "keywords": [
+    "ShellJS",
+    "Bash",
+    "benchmark"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IvantheDugtrio/ShellJSBench/issues"
+  },
+  "homepage": "https://github.com/IvantheDugtrio/ShellJSBench#readme",
+  "devDependencies": {
+    "shelljs": "^0.5.3"
+  }
+}
