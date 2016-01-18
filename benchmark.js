@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 require('shelljs/global');
 
-var TEST_DIR = 'scripts',
-    RUNCOUNT = 1;
+var TEST_DIR = 'scripts';
 
 cd(TEST_DIR);
 ls().forEach(function (dir) {
@@ -21,7 +20,9 @@ ls().forEach(function (dir) {
   // execute it
   var start_time,
       end_time,
+      shell_time,
       shell_output,
+      js_time,
       js_output;
 
   config.silent = true;
@@ -29,12 +30,19 @@ ls().forEach(function (dir) {
   start_time = new Date().getTime();
   js_output = exec('node ' + jsfile).output;
   end_time = new Date().getTime();
-  echo('> ShellJS took ' + (end_time - start_time) + ' milliseconds');
+  js_time = end_time - start_time;
+  echo('> ShellJS took ' + js_time + ' milliseconds');
 
   start_time = new Date().getTime();
   shell_output = exec('bash ' + shfile).output;
   end_time = new Date().getTime();
-  echo('> Bash took ' + (end_time - start_time) + ' milliseconds');
+  shell_time = end_time - start_time;
+  echo('> Bash took ' + shell_time + ' milliseconds');
+
+  if (shell_time < js_time)
+    echo('Bash won');
+  else
+    echo('ShellJS won!!');
 
   if (shell_output !== js_output)
     echo('Output differs');
