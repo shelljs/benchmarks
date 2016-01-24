@@ -39,10 +39,15 @@ ls().forEach(function (dir) {
   shell_time = end_time - start_time;
   echo('> Bash took ' + shell_time + ' milliseconds');
 
-  if (shell_time < js_time)
+  if (shell_time < js_time) {
     echo('Bash won');
-  else
+    echo('Bash was ' + (js_time/shell_time).toFixed(3) + ' times faster than ShellJS');
+  }
+
+  else {
     echo('ShellJS won!!');
+    echo('ShellJS was ' + (shell_time/js_time).toFixed(3) + ' times faster than Bash');
+  }
 
   if (shell_output !== js_output)
     echo('Output differs');
