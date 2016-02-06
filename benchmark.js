@@ -3,9 +3,22 @@ require('shelljs/global');
 
 var TEST_DIR = 'scripts';
 
+var shouldLog = (process.argv[2] === 'log');
+var log = [];
+
+function writeLog(msg, link) {
+  console.log(msg);
+  if (link) {
+    msg = msg.replace(']', '](' + link + ')');
+  }
+  log.push(msg);
+}
+
 cd(__dirname + '/' + TEST_DIR);
+var prefix;
 ls().forEach(function (dir) {
-  echo(dir)
+  prefix = TEST_DIR + '/' + dir;
+  writeLog('### [' + dir + ']', prefix)
   cd(dir)
 
   // Find the files
@@ -31,24 +44,22 @@ ls().forEach(function (dir) {
   js_output = exec('node ' + jsfile).output;
   end_time = new Date().getTime();
   js_time = end_time - start_time;
-  echo('> ShellJS took ' + js_time + ' milliseconds');
+  writeLog(' - [ShellJS] took `' + js_time + '` milliseconds', prefix + '/' + jsfile);
 
   start_time = new Date().getTime();
   shell_output = exec('bash ' + shfile).output;
   end_time = new Date().getTime();
   shell_time = end_time - start_time;
-  echo('> Bash took ' + shell_time + ' milliseconds');
+  writeLog(' - [Bash] took `' + shell_time + '` milliseconds', prefix + '/' + shfile);
 
   if (shell_time < js_time) {
-    echo('Bash won');
-    echo('Bash was ' + (js_time/shell_time).toFixed(3) + ' times faster than ShellJS');
+    writeLog('Bash was `' + (js_time/shell_time).toFixed(3) + '` times faster than ShellJS');
   } else {
-    echo('ShellJS won!!');
-    echo('ShellJS was ' + (shell_time/js_time).toFixed(3) + ' times faster than Bash');
+    writeLog('ShellJS was `' + (shell_time/js_time).toFixed(3) + '` times faster than Bash');
   }
 
   if (shell_output !== js_output)
-    echo('Output differs');
+    writeLog('Output differs');
 
   // Clean up
   echo('=======================');
@@ -56,3 +67,14 @@ ls().forEach(function (dir) {
   config.silent = false;
   cd('..')
 });
+
+if (shouldLog) {
+  cd(__dirname);
+  var text = log.join('\n\n');
+
+  // Wipe out the old results
+  cat('README.md').replace(/## Results(.|\n)*/, '## Results').to('README.md');
+
+  // Append new docs to README
+  sed('-i', /## Results/, '## Results\n\n' + text, 'README.md');
+}
