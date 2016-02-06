@@ -42,9 +42,7 @@ ls().forEach(function (dir) {
   if (shell_time < js_time) {
     echo('Bash won');
     echo('Bash was ' + (js_time/shell_time).toFixed(3) + ' times faster than ShellJS');
-  }
-
-  else {
+  } else {
     echo('ShellJS won!!');
     echo('ShellJS was ' + (shell_time/js_time).toFixed(3) + ' times faster than Bash');
   }

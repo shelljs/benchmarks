@@ -21,7 +21,10 @@
     "url": "https://github.com/IvantheDugtrio/ShellJSBench/issues"
   },
   "homepage": "https://github.com/IvantheDugtrio/ShellJSBench#readme",
-  "devDependencies": {
-    "shelljs": "^0.5.3"
+  "bin": {
+    "benchmark": "./benchmark.js"
+  },
+  "dependencies": {
+    "shelljs": "^0.6.0"
   }
 }
