@@ -3,7 +3,7 @@ require('shelljs/global');
 
 var TEST_DIR = 'scripts';
 
-cd(TEST_DIR);
+cd(__dirname + '/' + TEST_DIR);
 ls().forEach(function (dir) {
   echo(dir)
   cd(dir)
