@@ -16,6 +16,7 @@ function writeLog(msg, link) {
 
 cd(__dirname + '/' + TEST_DIR);
 var prefix;
+var shellJSWins = [];
 ls().forEach(function (dir) {
   prefix = TEST_DIR + '/' + dir;
   writeLog('### [' + dir + ']', prefix)
@@ -56,6 +57,7 @@ ls().forEach(function (dir) {
     writeLog('Bash was `' + (js_time/shell_time).toFixed(3) + '` times faster than ShellJS');
   } else {
     writeLog('ShellJS was `' + (shell_time/js_time).toFixed(3) + '` times faster than Bash');
+    shellJSWins.push(dir);
   }
 
   if (shell_output !== js_output)
@@ -70,7 +72,9 @@ ls().forEach(function (dir) {
 
 if (shouldLog) {
   cd(__dirname);
-  var text = log.join('\n\n');
+  var text = '### ShellJS performance wins\n\n';
+  text += shellJSWins.map(x => ' - [' + x + '](' + TEST_DIR + '/' + x + ')').join('\n');
+  text += '\n\n' + log.join('\n\n');
 
   // Wipe out the old results
   cat('README.md').replace(/## Results(.|\n)*/, '## Results').to('README.md');
