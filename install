@@ -1,0 +1,9 @@
+#!/bin/sh
+cd shelljs
+for D in *
+do
+  cd "$D"
+  npm install
+  cd ..
+done
+cd ..

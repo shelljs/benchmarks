@@ -4,6 +4,7 @@
   "description": "Benchmark ShellJS scripts",
   "main": "index.js",
   "scripts": {
+    "install": "./install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,8 +24,5 @@
   "homepage": "https://github.com/IvantheDugtrio/ShellJSBench#readme",
   "bin": {
     "benchmark": "./benchmark.js"
-  },
-  "dependencies": {
-    "shelljs": "^0.6.0"
   }
 }

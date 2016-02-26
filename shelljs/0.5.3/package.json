@@ -1,0 +1,11 @@
+{
+  "name": "shelljs-0.5.3",
+  "version": "1.0.0",
+  "description": "ShellJS v0.5.3",
+  "main": "index.js",
+  "dependencies": {
+    "shelljs": "^0.5.3"
+  },
+  "repository": {},
+  "license": "ISC"
+}
