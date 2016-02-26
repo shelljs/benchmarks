@@ -1,1 +1,1 @@
-module.exports = require('shelljs');
+module.exports = require('shelljs/global');
