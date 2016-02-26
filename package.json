@@ -4,6 +4,7 @@
   "description": "Benchmark ShellJS scripts",
   "main": "index.js",
   "scripts": {
+    "install": "./install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
