@@ -23,8 +23,5 @@
   "homepage": "https://github.com/shelljs/benchmarks#readme",
   "bin": {
     "benchmark": "./benchmark.js"
-  },
-  "dependencies": {
-    "shelljs": "^0.6.0"
   }
 }
