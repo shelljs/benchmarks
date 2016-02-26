@@ -14,6 +14,20 @@ function writeLog(msg, link) {
   log.push(msg);
 }
 
+function printSystemInfo() {
+  var os = require('os');
+  var cpus = os.cpus();
+  var spawn = require('child_process').spawn;
+  console.log('System Information:');
+  console.log(os.type(), os.release(), os.arch());
+  console.log('Node.js ' + process.versions.node);
+  console.log('V8 ' + process.versions.v8);
+  console.log(cpus[0].model + ' × ' + cpus.length);
+  console.log();
+  console.log('Shell Information:');
+  spawn('sh', ['-c', '${SHELL} --version'], { stdio: 'inherit' });
+}
+
 cd(__dirname + '/' + TEST_DIR);
 var prefix;
 var shellJSWins = [];
@@ -82,3 +96,4 @@ if (shouldLog) {
   // Append new docs to README
   sed('-i', /## Results/, '## Results\n\n' + text, 'README.md');
 }
+printSystemInfo();
