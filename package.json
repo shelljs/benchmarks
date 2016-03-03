@@ -4,6 +4,7 @@
   "description": "Benchmark ShellJS scripts",
   "main": "index.js",
   "scripts": {
+    "install": "node scripts/install.js",
     "test": "node benchmark.js"
   },
   "repository": {
@@ -20,8 +21,5 @@
   "bugs": {
     "url": "https://github.com/shelljs/benchmarks/issues"
   },
-  "homepage": "https://github.com/shelljs/benchmarks#readme",
-  "bin": {
-    "benchmark": "./benchmark.js"
-  }
+  "homepage": "https://github.com/shelljs/benchmarks#readme"
 }

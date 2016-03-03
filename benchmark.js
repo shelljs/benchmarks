@@ -1,10 +1,29 @@
 #!/usr/bin/env node
-require('shelljs/global');
+require('./shelljs/0.6.0');
 
-var TEST_DIR = 'scripts';
+var TEST_DIR = 'test';
 
 var shouldLog = (process.argv[2] === 'log');
 var log = [];
+
+var VERSION_FILE = 'version.txt';
+
+// @returns < 0 if a is an earlier version than b
+//          > 0 if a is a later version than b
+//          = 0 if a is an equivalent version to b
+function versionCmp(a, b) {
+  var aParts = a.split('.');
+  var bParts = b.split('.');
+
+  var maxLen = Math.max(aParts.length, bParts.length);
+  for (var k=0;k<maxLen;k++) {
+    if (Number(aParts[k]) < Number(bParts[k]))
+      return -1;
+    else if (Number(aParts[k]) > Number(bParts[k]))
+      return 1;
+  }
+  return 0;
+}
 
 function writeLog(msg, link) {
   if (!msg)
@@ -46,6 +65,8 @@ function printSystemInfo() {
   writeLog(' - version: ' + exec('bash --version', {silent: true}).stdout.replace(/\n+/g, '\n'));
 }
 
+var versions = ls(__dirname + '/shelljs/');
+
 cd(__dirname + '/' + TEST_DIR);
 var prefix;
 var shellJSWins = [];
@@ -76,16 +97,28 @@ ls().forEach(function (dir) {
   config.silent = true;
 
   start_time = new Date().getTime();
-  js_output = exec('node ' + jsfile).stdout;
-  end_time = new Date().getTime();
-  js_time = end_time - start_time;
-  writeLog(' - [ShellJS] took `' + js_time + '` milliseconds', prefix + '/' + jsfile);
-
-  start_time = new Date().getTime();
   shell_output = exec('bash ' + shfile).stdout;
   end_time = new Date().getTime();
   shell_time = end_time - start_time;
   writeLog(' - [Bash] took `' + shell_time + '` milliseconds', prefix + '/' + shfile);
+
+  var minimumVersion = test('-f', VERSION_FILE) ? cat(VERSION_FILE).trim() : '0.0.0';
+  versions.forEach(function (version) {
+    if (versionCmp(version, minimumVersion) < 0) {
+      writeLog(' - Skipping test for ShellJS '+version);
+      return;
+    }
+    var cmd = 'node ' + jsfile + ' ../../shelljs/' +
+      (version === 'latest' ? 'latest/global' : version);
+    start_time = new Date().getTime();
+    js_output = exec(cmd).stdout;
+    end_time = new Date().getTime();
+    js_time = end_time - start_time;
+    writeLog(' - [ShellJS '+version+'] took `' + js_time + '` milliseconds', prefix + '/' + jsfile);
+    if (shell_output !== js_output) {
+      writeLog('Output differs');
+    }
+  });
 
   if (shell_time < js_time) {
     writeLog('Bash was `' + (js_time/shell_time).toFixed(3) + '` times faster than ShellJS');
@@ -94,14 +127,12 @@ ls().forEach(function (dir) {
     shellJSWins.push(dir);
   }
 
-  if (shell_output !== js_output)
-    writeLog('Output differs');
-
   // Clean up
   echo('=======================');
   echo();
   config.silent = false;
   cd('..')
+  // exit(7); // DEBUG: fix this
 });
 
 if (shouldLog) {

@@ -5,5 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "shelljs": "^0.5.3"
-  }
+  },
+  "repository": {},
+  "license": "ISC"
 }
