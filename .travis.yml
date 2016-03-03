@@ -4,6 +4,11 @@ node_js: "5"
 os:
   - linux
 
+# For deploying to Github pages
+env:
+  global:
+  - secure: "XMTAFIlZb6B+DOTFj8ALnW6CpZrJfQBw+Y0o3VClLhZTs5E4oJeSlcN2SiSk77QwSQsNZ81wub5p9aqwkRDhOfJpcCBGXQrPnmaUagGteBE6gAqDOw86fq3USyg9S6Gqtm0IJQRXx6vhhFNVZpBIrcGg/BwSHiagPkyD1kQE/FlepbwPGWIyVNUnmKw4qdTSPOa3Dr0VV9DS/KP1JviB+dEH+4CebSlZNQ5Y5pRYZUa0888JkWsvmdx9jiecW4W9i+d/iyygw0dFvBQw4/s0isMSvYztq4cw/3urtkt2oh/SHaqo4hrcFjzP8OgzwB4L+yRxI49chXljhkts1WRgQjdn8gDC6t+uUfjqn8nm2sVaWsPSrjn6KydPW+LI0JG0lmKuYA/FQAVGjpVLgwkJy2Ck6/ZecgBauLbj/G7OT5xlOBx5XtehH1aFO90Jkoo2vEtDoWBrU6EM1NyQV5fwBO+xX1kMRw6BuRXVvAotSJJ8VH3QTbJbeL4aH0oGLWDl1YfY+SGXpVtPL6dWHvKWnIIApPi8DnOTDt4DKkvsKiHUeM6H1kUPeO057Gp0jjJGaLEugbyITcEaWXuHKQ81Vs5OYibOKUjaNbll1IdbzbOM3g1ASiDk8XRdeuq2hbwqFbKOo4iyRBE+E1ir7KNhBfmh3N3NaPKgrWP//Frl4p0="
+
 # blacklist
 branches:
   except:
