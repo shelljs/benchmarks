@@ -1,0 +1,14 @@
+language: node_js
+sudo: false
+node_js: "5"
+os:
+  - linux
+
+# blacklist
+branches:
+  except:
+    - gh-pages
+
+install:
+  - node --version
+  - npm install

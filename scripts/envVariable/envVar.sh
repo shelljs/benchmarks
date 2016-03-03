@@ -1,4 +1,4 @@
 #!/bin/bash
-for k in `seq 100000`; do
+for k in `seq 10000`; do
   echo "$PATH"
 done

@@ -42,7 +42,7 @@ function printSystemInfo() {
   writeLog(' - V8: ' + process.versions.v8);
   writeLog();
   writeLog('## Shell Information:');
-  writeLog(' - name: `' + exec('bash -c \'echo ${SHELL}\'', {silent: true}).stdout + '`');
+  writeLog(' - name: `' + exec('bash -c \'echo ${SHELL}\'', {silent: true}).stdout.trim() + '`');
   writeLog(' - version: ' + exec('bash --version', {silent: true}).stdout.replace(/\n+/g, '\n'));
 }
 
@@ -76,13 +76,13 @@ ls().forEach(function (dir) {
   config.silent = true;
 
   start_time = new Date().getTime();
-  js_output = exec('node ' + jsfile).output;
+  js_output = exec('node ' + jsfile).stdout;
   end_time = new Date().getTime();
   js_time = end_time - start_time;
   writeLog(' - [ShellJS] took `' + js_time + '` milliseconds', prefix + '/' + jsfile);
 
   start_time = new Date().getTime();
-  shell_output = exec('bash ' + shfile).output;
+  shell_output = exec('bash ' + shfile).stdout;
   end_time = new Date().getTime();
   shell_time = end_time - start_time;
   writeLog(' - [Bash] took `' + shell_time + '` milliseconds', prefix + '/' + shfile);
