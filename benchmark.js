@@ -156,8 +156,16 @@ if (shouldLog) {
 if (env.CI) {
   console.log('deploying to Github pages');
   // deploy to Github pages
+  exec('git config user.name "Travis CI"');
+  exec('git config user.email "ntfschr@gmail.com"');
   exec('git fetch origin gh-pages:gh-pages');
-  exec('git commit -am "Update gh-pages"');
-  exec('git push origin gh-pages');
+  exec('git checkout gh-pages');
+  exec('git add .');
+  exec('git commit -m "Deploy to Github pages"');
+  var ret = exec('git push --force --quiet "https://${GH_TOKEN}@github.com/shelljs/benchmarks.git" gh-pages').code;
+  if (ret === 0)
+    console.log('Successfully deployed!');
+  else
+    console.error('Error deploying to Github pages');
   exec('git checkout -'); // back to previous branch
 }
