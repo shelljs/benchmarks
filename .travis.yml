@@ -17,3 +17,7 @@ branches:
 install:
   - node --version
   - npm install
+
+script:
+  - npm test
+  - npm run deploy
