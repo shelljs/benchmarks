@@ -12,7 +12,9 @@ if (env.GH_TOKEN) {
   exec('git config user.email "ntfschr@gmail.com"');
   exec('git fetch origin gh-pages:gh-pages');
   exec('git add .');
+  exec('git stash');
   exec('git checkout gh-pages');
+  exec('git stash pop');
   exec('git commit -m "Deploy to Github pages"');
   var ret = exec('git push --force --quiet "https://${GH_TOKEN}@github.com/shelljs/benchmarks.git" gh-pages').code;
   if (ret === 0) {
