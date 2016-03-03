@@ -48,96 +48,96 @@ There is NO WARRANTY, to the extent permitted by law.
 
 ### [echoIntoFile](test/echoIntoFile)
 
- - [Bash](test/echoIntoFile/echoIntoFile.sh) took `964` milliseconds
+ - [Bash](test/echoIntoFile/echoIntoFile.sh) took `842` milliseconds
 
- - [ShellJS 0.5.3](test/echoIntoFile/echoIntoFile.js) took `281` milliseconds
+ - [ShellJS 0.5.3](test/echoIntoFile/echoIntoFile.js) took `252` milliseconds
 
- - [ShellJS 0.6.0](test/echoIntoFile/echoIntoFile.js) took `312` milliseconds
+ - [ShellJS 0.6.0](test/echoIntoFile/echoIntoFile.js) took `270` milliseconds
 
- - [ShellJS latest](test/echoIntoFile/echoIntoFile.js) took `198` milliseconds
+ - [ShellJS latest](test/echoIntoFile/echoIntoFile.js) took `178` milliseconds
 
-ShellJS was `4.869` times faster than Bash
+ShellJS was `4.730` times faster than Bash
 
 ### [envVariable](test/envVariable)
 
- - [Bash](test/envVariable/envVar.sh) took `271` milliseconds
+ - [Bash](test/envVariable/envVar.sh) took `314` milliseconds
 
- - [ShellJS 0.5.3](test/envVariable/envVar.js) took `366` milliseconds
+ - [ShellJS 0.5.3](test/envVariable/envVar.js) took `281` milliseconds
 
- - [ShellJS 0.6.0](test/envVariable/envVar.js) took `357` milliseconds
+ - [ShellJS 0.6.0](test/envVariable/envVar.js) took `293` milliseconds
 
- - [ShellJS latest](test/envVariable/envVar.js) took `695` milliseconds
+ - [ShellJS latest](test/envVariable/envVar.js) took `618` milliseconds
 
-Bash was `2.565` times faster than ShellJS
+Bash was `1.968` times faster than ShellJS
 
 ### [forLoopAlternateSyntax](test/forLoopAlternateSyntax)
 
- - [Bash](test/forLoopAlternateSyntax/helloworld10k.sh) took `104` milliseconds
+ - [Bash](test/forLoopAlternateSyntax/helloworld10k.sh) took `91` milliseconds
 
- - [ShellJS 0.5.3](test/forLoopAlternateSyntax/helloworld10k.js) took `212` milliseconds
+ - [ShellJS 0.5.3](test/forLoopAlternateSyntax/helloworld10k.js) took `184` milliseconds
 
- - [ShellJS 0.6.0](test/forLoopAlternateSyntax/helloworld10k.js) took `220` milliseconds
+ - [ShellJS 0.6.0](test/forLoopAlternateSyntax/helloworld10k.js) took `185` milliseconds
 
- - [ShellJS latest](test/forLoopAlternateSyntax/helloworld10k.js) took `262` milliseconds
+ - [ShellJS latest](test/forLoopAlternateSyntax/helloworld10k.js) took `235` milliseconds
 
-Bash was `2.519` times faster than ShellJS
+Bash was `2.582` times faster than ShellJS
 
 ### [helloworld](test/helloworld)
 
- - [Bash](test/helloworld/helloworld.sh) took `95` milliseconds
+ - [Bash](test/helloworld/helloworld.sh) took `84` milliseconds
 
- - [ShellJS 0.5.3](test/helloworld/helloworld.js) took `206` milliseconds
+ - [ShellJS 0.5.3](test/helloworld/helloworld.js) took `195` milliseconds
 
- - [ShellJS 0.6.0](test/helloworld/helloworld.js) took `193` milliseconds
+ - [ShellJS 0.6.0](test/helloworld/helloworld.js) took `175` milliseconds
 
- - [ShellJS latest](test/helloworld/helloworld.js) took `209` milliseconds
+ - [ShellJS latest](test/helloworld/helloworld.js) took `175` milliseconds
 
-Bash was `2.200` times faster than ShellJS
+Bash was `2.083` times faster than ShellJS
 
 ### [helloworld10k](test/helloworld10k)
 
- - [Bash](test/helloworld10k/helloworld10k.sh) took `217` milliseconds
+ - [Bash](test/helloworld10k/helloworld10k.sh) took `208` milliseconds
 
- - [ShellJS 0.5.3](test/helloworld10k/helloworld10k.js) took `343` milliseconds
+ - [ShellJS 0.5.3](test/helloworld10k/helloworld10k.js) took `326` milliseconds
 
- - [ShellJS 0.6.0](test/helloworld10k/helloworld10k.js) took `337` milliseconds
+ - [ShellJS 0.6.0](test/helloworld10k/helloworld10k.js) took `264` milliseconds
 
- - [ShellJS latest](test/helloworld10k/helloworld10k.js) took `670` milliseconds
+ - [ShellJS latest](test/helloworld10k/helloworld10k.js) took `760` milliseconds
 
-Bash was `3.088` times faster than ShellJS
+Bash was `3.654` times faster than ShellJS
 
 ### [ls10k](test/ls10k)
 
- - [Bash](test/ls10k/ls10k.sh) took `11986` milliseconds
+ - [Bash](test/ls10k/ls10k.sh) took `10334` milliseconds
 
- - [ShellJS 0.5.3](test/ls10k/ls10k.js) took `799` milliseconds
+ - [ShellJS 0.5.3](test/ls10k/ls10k.js) took `690` milliseconds
 
- - [ShellJS 0.6.0](test/ls10k/ls10k.js) took `1031` milliseconds
+ - [ShellJS 0.6.0](test/ls10k/ls10k.js) took `748` milliseconds
 
- - [ShellJS latest](test/ls10k/ls10k.js) took `1368` milliseconds
+ - [ShellJS latest](test/ls10k/ls10k.js) took `1115` milliseconds
 
-ShellJS was `8.762` times faster than Bash
+ShellJS was `9.268` times faster than Bash
 
 ### [pwd10k](test/pwd10k)
 
- - [Bash](test/pwd10k/path10k.sh) took `729` milliseconds
+ - [Bash](test/pwd10k/path10k.sh) took `632` milliseconds
 
- - [ShellJS 0.5.3](test/pwd10k/path10k.js) took `1946` milliseconds
+ - [ShellJS 0.5.3](test/pwd10k/path10k.js) took `1625` milliseconds
 
- - [ShellJS 0.6.0](test/pwd10k/path10k.js) took `2226` milliseconds
+ - [ShellJS 0.6.0](test/pwd10k/path10k.js) took `2343` milliseconds
 
- - [ShellJS latest](test/pwd10k/path10k.js) took `6530` milliseconds
+ - [ShellJS latest](test/pwd10k/path10k.js) took `6133` milliseconds
 
-Bash was `8.957` times faster than ShellJS
+Bash was `9.704` times faster than ShellJS
 
 ### [touchSyntax0.6](test/touchSyntax0.6)
 
- - [Bash](test/touchSyntax0.6/touchrm10k.sh) took `1602` milliseconds
+ - [Bash](test/touchSyntax0.6/touchrm10k.sh) took `1392` milliseconds
 
  - Skipping test for ShellJS 0.5.3
 
- - [ShellJS 0.6.0](test/touchSyntax0.6/touchrm10k.js) took `311` milliseconds
+ - [ShellJS 0.6.0](test/touchSyntax0.6/touchrm10k.js) took `270` milliseconds
 
- - [ShellJS latest](test/touchSyntax0.6/touchrm10k.js) took `539` milliseconds
+ - [ShellJS latest](test/touchSyntax0.6/touchrm10k.js) took `465` milliseconds
 
-ShellJS was `2.972` times faster than Bash
+ShellJS was `2.994` times faster than Bash

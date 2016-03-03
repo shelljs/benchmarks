@@ -4,10 +4,9 @@ require('./shelljs/0.6.0');
 var TEST_DIR = 'test';
 
 var shouldLog = (process.argv[2] === 'log');
-var markdownFile = __dirname + '/README.md';
+var markdownFile = __dirname + '/index.md';
 if (env.CI) {
   shouldLog = true;
-  markdownFile = __dirname + '/index.md';
 }
 var log = [];
 
