@@ -4,6 +4,11 @@ require('./shelljs/0.6.0');
 var TEST_DIR = 'test';
 
 var shouldLog = (process.argv[2] === 'log');
+var markdownFile = __dirname + '/README.md';
+if (env.CI) {
+  shouldLog = true;
+  markdownFile = __dirname + '/index.md';
+}
 var log = [];
 
 var VERSION_FILE = 'version.txt';
@@ -142,8 +147,17 @@ if (shouldLog) {
   text += '\n\n' + log.join('\n\n');
 
   // Wipe out the old results
-  cat('README.md').replace(/## Results(.|\n)*/, '## Results').to('README.md');
+  cat(markdownFile).replace(/## Results(.|\n)*/, '## Results').to(markdownFile);
 
-  // Append new docs to README
-  sed('-i', /## Results/, '## Results\n\n' + text, 'README.md');
+  // Append new docs to markdown file
+  sed('-i', /## Results/, '## Results\n\n' + text, markdownFile);
+}
+
+if (env.CI) {
+  console.log('deploying to Github pages');
+  // deploy to Github pages
+  exec('git fetch origin gh-pages:gh-pages');
+  exec('git commit -am "Update gh-pages"');
+  exec('git push origin gh-pages');
+  exec('git checkout -'); // back to previous branch
 }
