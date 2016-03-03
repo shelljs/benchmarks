@@ -4,6 +4,8 @@
 
 Collection of benchmarks for ShellJS
 
+Note: benchmark results will be moving to Github Pages - stay tuned.
+
 This is a comparison of [ShellJS]() and bash for performance. Each test case
 runs scripts with equivalent output and compares Bash's runtime with ShellJS's.
 Surprisingly, ShellJS is often the winner, sometimes being up to **12x faster**!

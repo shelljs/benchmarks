@@ -18,7 +18,6 @@ if (env.GH_TOKEN) {
   } else {
     console.error('Error deploying to Github pages');
   }
-  exec('git checkout -'); // back to previous branch
   exit(ret);
 } else {
   console.error('Error: GH_TOKEN must be in the current environment');
