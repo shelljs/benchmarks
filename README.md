@@ -1,5 +1,7 @@
 # ShellJS Benchmarks
 
+[![Build Status](https://travis-ci.org/shelljs/benchmarks.svg?branch=master)](https://travis-ci.org/shelljs/benchmarks)
+
 Collection of benchmarks for ShellJS
 
 This is a comparison of [ShellJS]() and bash for performance. Each test case
