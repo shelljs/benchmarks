@@ -18,10 +18,9 @@ if (env.GH_TOKEN) {
   console.log('Deploying to Github pages');
   cd('build');
 
+  exec('git init');
   exec('git config user.name "Travis CI"');
   exec('git config user.email "ntfschr@gmail.com"');
-
-  exec('git init');
   exec('git add .');
   exec('git commit -m "Deploy to Github pages"');
   var ret = exec('git push --force --quiet "https://${GH_TOKEN}@github.com/shelljs/benchmarks.git" master:gh-pages').code;
