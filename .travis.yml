@@ -4,6 +4,12 @@ node_js: "5"
 os:
   - linux
 
+# So we can compile markdown
+addons:
+  apt:
+    packages:
+      - pandoc
+
 # For deploying to Github pages
 env:
   global:
