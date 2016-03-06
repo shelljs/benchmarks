@@ -20,7 +20,7 @@ if (env.GH_TOKEN) {
 
   exec('git add .');
   exec('git commit -m "Deploy to Github pages"');
-  var ret = exec('git push --force --quiet "https://${GH_TOKEN}@github.com/shelljs/benchmarks.git" master:gh-pages').code;
+  var ret = exec('git push --force --quiet "https://${GH_TOKEN}@github.com/shelljs/benchmarks.git" gh-pages').code;
   if (ret === 0) {
     console.log('Successfully deployed!');
   } else {
