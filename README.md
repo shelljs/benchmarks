@@ -1,6 +1,6 @@
 # ShellJS Benchmarks
 
-[![Join the chat at https://gitter.im/shelljs/benchmarks](https://badges.gitter.im/shelljs/benchmarks.svg)](https://gitter.im/shelljs/benchmarks?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/shelljs/shelljs](https://badges.gitter.im/shelljs/shelljs.svg)](https://gitter.im/shelljs/shelljs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/shelljs/benchmarks.svg?branch=master)](https://travis-ci.org/shelljs/benchmarks)
 
 Collection of benchmarks for ShellJS
