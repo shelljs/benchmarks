@@ -5,20 +5,14 @@ require('../shelljs/0.6.0');
 // This script is typically run by the CI
 // GH_TOKEN must be an environmental variable
 
-var markdownFile = __dirname + '/index.md';
-
 set('-e');
 if (env.GH_TOKEN) {
   console.log('Compiling markdown to HTML');
 
-  rm('-rf', 'build');
-  mkdir('build');
-  exec('pandoc index.md -f markdown -t html -s -o build/index.html');
+  exec('pandoc index.md -f markdown -t html -s -o index.html');
 
   console.log('Deploying to Github pages');
-  cd('build');
 
-  exec('git init');
   exec('git config user.name "Travis CI"');
   exec('git config user.email "ntfschr@gmail.com"');
   exec('git add .');
