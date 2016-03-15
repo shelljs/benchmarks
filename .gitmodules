@@ -1,3 +1,0 @@
-[submodule "shelljs/latest"]
-	path = shelljs/latest
-	url = https://github.com/shelljs/shelljs.git

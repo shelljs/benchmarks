@@ -6,9 +6,6 @@ var c = require('child_process').exec('npm install --production', function(code,
   console.log(stdout);
   require('../shelljs/0.6.0');
   set('-e');
-  cd(__dirname + '/..');
-  exec('git submodule init');
-  exec('git submodule update');
   cd(__dirname + '/../shelljs');
   ls().forEach(function (k) {
     cd(k);

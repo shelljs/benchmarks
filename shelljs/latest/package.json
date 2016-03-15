@@ -1,0 +1,11 @@
+{
+  "name": "shelljs-latest",
+  "version": "1.0.0",
+  "description": "ShellJS master branch",
+  "main": "index.js",
+  "dependencies": {
+    "shelljs": "github:shelljs/shelljs"
+  },
+  "repository": {},
+  "license": "ISC"
+}
