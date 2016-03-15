@@ -5,11 +5,17 @@ require('../shelljs/0.6.0');
 // This script is typically run by the CI
 // GH_TOKEN must be an environmental variable
 
-set('-e');
 if (env.GH_TOKEN) {
   console.log('Compiling markdown to HTML');
 
   exec('pandoc index.md -f markdown -t html -s -o index.html');
+  if (error()) {
+    console.error('Unable to convert markdown');
+    exit(1);
+  } else if (!test('-f', 'index.html')) {
+    console.error('Unable to find index.html');
+    exit(1);
+  }
 
   console.log('Deploying to Github pages');
 
@@ -17,7 +23,7 @@ if (env.GH_TOKEN) {
   exec('git config user.email "ntfschr@gmail.com"');
   exec('git add .');
   exec('git commit -m "Deploy to Github pages"');
-  var ret = exec('git push --force --quiet "https://${GH_TOKEN}@github.com/shelljs/benchmarks.git" master:gh-pages').code;
+  var ret = exec('git push --force --quiet "https://${GH_TOKEN}@github.com/shelljs/benchmarks.git" HEAD:gh-pages').code;
   if (ret === 0) {
     console.log('Successfully deployed!');
   } else {
