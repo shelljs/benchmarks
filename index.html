@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+</head>
+<body>
+<h1 id="shelljs-benchmarks">ShellJS Benchmarks</h1>
+<p><a href="https://travis-ci.org/shelljs/benchmarks"><embed src="https://travis-ci.org/shelljs/benchmarks.svg?branch=master"></a></p>
+<p>Collection of benchmarks for ShellJS</p>
+<p>This is a comparison of <a href="">ShellJS</a> and bash for performance. Each test case runs scripts with equivalent output and compares Bash's runtime with ShellJS's. Surprisingly, ShellJS is often the winner, sometimes being up to <strong>12x faster</strong>! Woohoo! See below for <a href="#shelljs-performance-wins">ShellJS performance wins</a>.</p>
+<h2 id="results">Results</h2>
+<h3 id="shelljs-performance-wins">ShellJS performance wins</h3>
+<ul>
+<li><a href="test/echoIntoFile">echoIntoFile</a></li>
+<li><a href="test/ls10k">ls10k</a></li>
+<li><a href="test/touchSyntax0.6">touchSyntax0.6</a></li>
+</ul>
+<h2 id="system-information">System Information:</h2>
+<ul>
+<li><p>Linux</p></li>
+<li><p>3.13.0-40-generic</p></li>
+<li><p>x64</p></li>
+<li><p>Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz × 32</p></li>
+</ul>
+<h2 id="node-information">Node information</h2>
+<ul>
+<li><p>Node.js: v5.12.0</p></li>
+<li><p>V8: 4.6.85.32</p></li>
+</ul>
+<h2 id="shell-information">Shell Information:</h2>
+<ul>
+<li><p>name: <code>/bin/bash</code></p></li>
+<li><p>version: GNU bash, version 4.2.25(1)-release (x86_64-pc-linux-gnu) Copyright (C) 2011 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later <a href="http://gnu.org/licenses/gpl.html"><code class="url">http://gnu.org/licenses/gpl.html</code></a> This is free software; you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.</p></li>
+</ul>
+<h3 id="echointofile"><a href="test/echoIntoFile">echoIntoFile</a></h3>
+<ul>
+<li><p><a href="test/echoIntoFile/echoIntoFile.sh">Bash</a> took <code>721</code> milliseconds</p></li>
+<li><p><a href="test/echoIntoFile/echoIntoFile.js">ShellJS 0.5.3</a> took <code>260</code> milliseconds</p></li>
+<li><p><a href="test/echoIntoFile/echoIntoFile.js">ShellJS 0.6.0</a> took <code>265</code> milliseconds</p></li>
+<li><p><a href="test/echoIntoFile/echoIntoFile.js">ShellJS latest</a> took <code>151</code> milliseconds</p></li>
+</ul>
+<p>ShellJS was <code>4.775</code> times faster than Bash</p>
+<h3 id="envvariable"><a href="test/envVariable">envVariable</a></h3>
+<ul>
+<li><p><a href="test/envVariable/envVar.sh">Bash</a> took <code>480</code> milliseconds</p></li>
+<li><p><a href="test/envVariable/envVar.js">ShellJS 0.5.3</a> took <code>310</code> milliseconds</p></li>
+<li><p><a href="test/envVariable/envVar.js">ShellJS 0.6.0</a> took <code>309</code> milliseconds</p></li>
+<li><p><a href="test/envVariable/envVar.js">ShellJS latest</a> took <code>516</code> milliseconds</p></li>
+</ul>
+<p>Bash was <code>1.075</code> times faster than ShellJS</p>
+<h3 id="forloopalternatesyntax"><a href="test/forLoopAlternateSyntax">forLoopAlternateSyntax</a></h3>
+<ul>
+<li><p><a href="test/forLoopAlternateSyntax/helloworld10k.sh">Bash</a> took <code>86</code> milliseconds</p></li>
+<li><p><a href="test/forLoopAlternateSyntax/helloworld10k.js">ShellJS 0.5.3</a> took <code>164</code> milliseconds</p></li>
+<li><p><a href="test/forLoopAlternateSyntax/helloworld10k.js">ShellJS 0.6.0</a> took <code>167</code> milliseconds</p></li>
+<li><p><a href="test/forLoopAlternateSyntax/helloworld10k.js">ShellJS latest</a> took <code>197</code> milliseconds</p></li>
+</ul>
+<p>Bash was <code>2.291</code> times faster than ShellJS</p>
+<h3 id="helloworld"><a href="test/helloworld">helloworld</a></h3>
+<ul>
+<li><p><a href="test/helloworld/helloworld.sh">Bash</a> took <code>76</code> milliseconds</p></li>
+<li><p><a href="test/helloworld/helloworld.js">ShellJS 0.5.3</a> took <code>150</code> milliseconds</p></li>
+<li><p><a href="test/helloworld/helloworld.js">ShellJS 0.6.0</a> took <code>151</code> milliseconds</p></li>
+<li><p><a href="test/helloworld/helloworld.js">ShellJS latest</a> took <code>154</code> milliseconds</p></li>
+</ul>
+<p>Bash was <code>2.026</code> times faster than ShellJS</p>
+<h3 id="helloworld10k"><a href="test/helloworld10k">helloworld10k</a></h3>
+<ul>
+<li><p><a href="test/helloworld10k/helloworld10k.sh">Bash</a> took <code>157</code> milliseconds</p></li>
+<li><p><a href="test/helloworld10k/helloworld10k.js">ShellJS 0.5.3</a> took <code>233</code> milliseconds</p></li>
+<li><p><a href="test/helloworld10k/helloworld10k.js">ShellJS 0.6.0</a> took <code>231</code> milliseconds</p></li>
+<li><p><a href="test/helloworld10k/helloworld10k.js">ShellJS latest</a> took <code>387</code> milliseconds</p></li>
+</ul>
+<p>Bash was <code>2.465</code> times faster than ShellJS</p>
+<h3 id="ls10k"><a href="test/ls10k">ls10k</a></h3>
+<ul>
+<li><p><a href="test/ls10k/ls10k.sh">Bash</a> took <code>8792</code> milliseconds</p></li>
+<li><p><a href="test/ls10k/ls10k.js">ShellJS 0.5.3</a> took <code>562</code> milliseconds</p></li>
+<li><p><a href="test/ls10k/ls10k.js">ShellJS 0.6.0</a> took <code>554</code> milliseconds</p></li>
+<li><p><a href="test/ls10k/ls10k.js">ShellJS latest</a> took <code>1081</code> milliseconds</p></li>
+</ul>
+<p>ShellJS was <code>8.133</code> times faster than Bash</p>
+<h3 id="pwd10k"><a href="test/pwd10k">pwd10k</a></h3>
+<ul>
+<li><p><a href="test/pwd10k/path10k.sh">Bash</a> took <code>569</code> milliseconds</p></li>
+<li><p><a href="test/pwd10k/path10k.js">ShellJS 0.5.3</a> took <code>1223</code> milliseconds</p></li>
+<li><p><a href="test/pwd10k/path10k.js">ShellJS 0.6.0</a> took <code>1456</code> milliseconds</p></li>
+<li><p><a href="test/pwd10k/path10k.js">ShellJS latest</a> took <code>3263</code> milliseconds</p></li>
+</ul>
+<p>Bash was <code>5.735</code> times faster than ShellJS</p>
+<h3 id="touchsyntax0.6"><a href="test/touchSyntax0.6">touchSyntax0.6</a></h3>
+<ul>
+<li><p><a href="test/touchSyntax0.6/touchrm10k.sh">Bash</a> took <code>1328</code> milliseconds</p></li>
+<li><p>Skipping test for ShellJS 0.5.3</p></li>
+<li><p><a href="test/touchSyntax0.6/touchrm10k.js">ShellJS 0.6.0</a> took <code>276</code> milliseconds</p></li>
+<li><p><a href="test/touchSyntax0.6/touchrm10k.js">ShellJS latest</a> took <code>454</code> milliseconds</p></li>
+</ul>
+<p>ShellJS was <code>2.925</code> times faster than Bash</p>
+</body>
+</html>
